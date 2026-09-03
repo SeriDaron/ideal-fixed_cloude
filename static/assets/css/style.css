@@ -11656,6 +11656,20 @@ screen and (min-width:64em) {
     display: none
 }
 
+.project-slider .slide-content.video-slide {
+    background-color: #000;
+}
+.project-slider .slide-content.video-slide video {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+@media screen and (max-width:39.9375em) {
+    .project-slider .slide-content.video-slide { height: auto; }
+    .project-slider .slide-content.video-slide video { height: auto; }
+}
+
 @media screen and (max-width:39.9375em) {
     .project-slider {
         height: auto;
