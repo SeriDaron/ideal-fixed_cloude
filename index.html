@@ -179,4 +179,19 @@
 
 <!-- Основной JS файл проекта -->
 <script src="./static/assets/js/main.js"></script>
+<script>
+    // vide.js создаёт <video> динамически, поэтому playsinline нельзя
+    // прописать прямо в HTML — добавляем его сразу после инициализации
+    // фонового видео. Без этого атрибута iOS Safari может отказаться
+    // автоматически проигрывать даже muted-видео.
+    if (window.$) {
+        window.$(document).ready(function () {
+            var v = document.querySelector('#home video');
+            if (v) {
+                v.setAttribute('playsinline', '');
+                v.setAttribute('webkit-playsinline', '');
+            }
+        });
+    }
+</script>
 </html>
