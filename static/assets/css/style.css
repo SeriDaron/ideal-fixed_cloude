@@ -11243,19 +11243,26 @@ screen and (min-width:64em) {
 }
 
 .home-header .animation-container div h1 {
-    font-size: 65px;
-    font-weight: 500;
-    color: #f4c09d
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 38px;            /* Элегантный размер, чтобы текст не разбивался на много строк */
+    font-weight: 300;           /* Тонкое, статусное начертание */
+    text-transform: uppercase;  /* Все буквы заглавные (как у дорогих брендов) */
+    letter-spacing: 4px;        /* Широкая воздушная разрядка букв */
+    color: #ffffff;             /* Чистый благородный белый цвет */
+    line-height: 1.3;
+    margin: 0;
 }
 
-@media screen and (max-width:39.9375em) {
+/* Адаптивность для мобильных экранов */
+@media screen and (max-width: 39.9375em) {
     .home-header .animation-container div h1 {
-        font-size: 45px
+        font-size: 22px;        /* Аккуратный размер для экранов смартфонов */
+        letter-spacing: 2px;
     }
 }
 
 .home-header .animation-container div h1.thin {
-    font-weight: 100
+    font-weight: 100;
 }
 
 .home-header .animation-container img.logo-text {
@@ -13209,11 +13216,11 @@ screen and (min-width:40em) {
     padding: 10px;
     pointer-events: auto
 }
-/* ==========================================
-   ТОТАЛЬНЫЙ ФИКС МЕНЮ (ПРИ ОТКРЫТИИ И ЗАКРЫТИИ)
-   ========================================== */
+/* ==========================================================================
+   ТОТАЛЬНЫЙ ФИКС МЕНЮ — ИЗЯЩНЫЙ ИТАЛЬЯНСКИЙ СТИЛЬ (IDEAL BRAND)
+   ========================================================================== */
 
-/* 1. Блокируем старые прыгающие анимации текста ВСЕГДА (и при закрытии тоже) */
+/* 1. Блокируем старые прыгающие анимации текста */
 #main-menu li a,
 #main-menu li a span {
     transform: none !important;
@@ -13221,46 +13228,39 @@ screen and (min-width:40em) {
     transition: none !important;
 }
 
-/* 2. Делаем пункты меню адаптивными и блочными в любом состоянии
-      (кроме .social — у иконок соцсетей своя раскладка и свой,
-      уже подобранный под iPhone, размер — см. блок item 17 выше;
-      если применить это правило и к ним, оно перебьёт тот фикс
-      через !important и иконки снова наедут на пункты меню) */
+/* 2. Делаем пункты меню адаптивными и блочными в любом состоянии */
 #main-menu li:not(.social) {
     display: block !important;
     width: 100% !important;
     text-align: center !important;
 }
 
-/* 3. Настраиваем ссылки меню как стабильную основу */
+/* 3. Настраиваем ссылки меню — легкая типографика high-end класса */
 #main-menu li:not(.social) a {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
+    font-size: 14px !important;            /* Компактный, утонченный размер */
+    font-weight: 300 !important;          /* Тонкое люксовое начертание */
+    text-transform: uppercase !important;    /* Все буквы заглавные */
+    letter-spacing: 3px !important;       /* Широкая воздушная разрядка букв */
+    color: #8a8e98 !important;            /* Сдержанный благородный серый в покое */
     display: inline-block !important;
     position: relative !important;
-    padding: 10px 15px !important;
+    padding: 12px 15px !important;
     text-decoration: none !important;
-    color: #f4c09d !important; /* Розовато-бежевый цвет вашего сайта */
-    font-size: 24px !important;
-    transition: color 0.3s ease-in-out !important;
+    transition: all 0.3s ease-in-out !important;
 }
 
-/* 4. Создаем скрытую подложку-линию под текстом */
-#main-menu li:not(.social) a::after {
-    content: '' !important;
-    position: absolute !important;
-    bottom: 2px !important; /* Расстояние от букв до полосы */
-    left: 0 !important;
-    width: 100% !important;
-    height: 2px !important; /* Толщина подчеркивания */
-    background-color: #f4c09d !important; /* Линия в цвет текста */
-    transform: scaleX(0) !important;
-    transform-origin: bottom right !important;
-    transition: transform 0.3s ease-out !important;
+/* 4. Мягкая подсветка букв при наведении (Без грубых линий подчеркивания) */
+#main-menu li:not(.social) a:hover {
+    color: #ffffff !important;            /* Текст плавно загорается белым */
+    letter-spacing: 4px !important;       /* Буквы едва заметно раздвигаются еще шире */
 }
 
-/* 5. Эффект разворачивания линии при наведении мышки */
-#main-menu li:not(.social) a:hover::after {
-    transform: scaleX(1) !important;
-    transform-origin: bottom left !important;
+/* 5. Акцентный цвет розового золота для страницы, где мы сейчас находимся */
+#main-menu li:not(.social) a.active,
+#main-menu li:not(.social) a.services {
+    color: #E5BAA2 !important;            /* Нежный блик розового золота */
+    font-weight: 400 !important;
 }
 /* ===============================
    НЕЗАВИСИМАЯ ИНТЕРАКТИВНАЯ КАРТА
