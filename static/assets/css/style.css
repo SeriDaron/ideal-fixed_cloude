@@ -12520,10 +12520,15 @@ screen and (min-width:40em) {
 .loader {
     width: 100vw;
     height: 100vh;
-    background-color: #1d212f;
+    background-color: #0b0c0e !important; /* Наш глубокий премиальный темный фон */
     z-index: 100000;
     position: fixed;
-    transition: all .4s
+    transition: all .4s;
+    
+    /* Современное выравнивание: держит ЛЮБОЙ внутренний логотип строго по центру */
+    display: flex !important;
+    align-items: center !important;      /* Центрирование по вертикали */
+    justify-content: center !important;  /* Центрирование по горизонтали */
 }
 
 .loader.loaded {
@@ -12531,14 +12536,19 @@ screen and (min-width:40em) {
     z-index: -10
 }
 
-.loader img {
-    top: 50%;
-    left: 50%;
-    position: absolute;
-    -webkit-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    max-width: 100px
+/* Стили для адаптивности и размера самого логотипа внутри прелоадера */
+.loader img,
+.loader svg,
+.loader .effect-shine {
+    max-width: 80px !important;
+    max-height: 80px !important;
+    width: 80px !important;
+    height: 80px !important;
+    display: block !important;
+    margin: 0 auto !important;
+    /* Убрали старое абсолютное позиционирование, так как flex-сетка выше работает стабильнее */
+    position: static !important; 
+    transform: none !important;
 }
 
 @media screen and (max-width:39.9375em) {
