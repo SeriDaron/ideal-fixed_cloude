@@ -13316,3 +13316,33 @@ screen and (min-width:40em) {
     color: #fefefe !important; /* Вместо затухания текст плавно загорается белым цветом */
     opacity: 1 !important;     /* Гарантируем 100% яркость без прозрачности */
 }
+
+/* Плавное проявление стрелочки из прозрачности (для Главной страницы) */
+@keyframes fadeInArrow {
+    to {
+        opacity: 1;
+    }
+}
+
+/* Эффект деликатного покачивания и люксовой яркости стрелочки */
+.luxury-float {
+    animation: luxuryFloatBounce 2.5s infinite ease-in-out !important;
+    /* Мягкое белое свечение по контуру, чтобы стрелочка была сочной и контрастной на темном фоне */
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.65)) brightness(1.2) !important;
+    transition: filter 0.3s ease !important;
+}
+
+/* При наведении мышки стрелочка подсвечивается еще ярче */
+.luxury-float:hover {
+    filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.9)) brightness(1.4) !important;
+}
+
+/* Анимация мягкого смещения стрелочки вниз на 10 пикселей */
+@keyframes luxuryFloatBounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(10px);
+    }
+}

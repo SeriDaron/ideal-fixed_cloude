@@ -111,10 +111,10 @@
     </div>
 </div>
 
-<section class="home-header team-intro scrollify " style="background-image:url(../static/img/bg-our-team.jpg)" data-magellan="" data-offset="-25">
+<!-- Вступительный баннер страницы Команда с фиксированной яркой стрелочкой -->
+<section class="home-header team-intro scrollify" style="background-image:url(../static/img/bg-our-team.jpg); data-magellan='' data-offset='-25'; position: relative; width: 100%; height: 100vh; overflow: hidden;">
     <div class="overlay"></div>
-    <div class="intro-container">
-        <!-- Оригинальный тег логотипа, чтобы не нарушать встроенные стили шаблона -->
+    <div class="intro-container" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100%; text-align: center; z-index: 2;">
         <img src="../static/img/logo-icon.svg" alt="IDEAL" loading="lazy">
         <h2>Наша команда</h2>
         <p>
@@ -124,9 +124,13 @@
             и доводим каждую деталь вашей резиденции до эстетического и технологического абсолюта».
         </p>
     </div>
-    <a href="#team-container" class="scroll-icon scroll-pages">
-        <img class="arrow-down" style="max-width:80px;" src="../static/img/icons/arrow-down.svg" alt="">
-    </a>
+    
+    <!-- Новая яркая стрелочка: жестко привязана к низу экрана по центру -->
+    <div style="position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%); z-index: 3; text-align: center;">
+        <a href="#team-container" class="scroll-icon scroll-pages" style="display: inline-block; text-decoration: none;">
+            <img class="arrow-down luxury-float" style="max-width: 60px; width: 60px; height: auto;" src="../static/img/icons/arrow-down.svg" alt="Дальше">
+        </a>
+    </div>
 </section>
 
 <section class="scrollify">

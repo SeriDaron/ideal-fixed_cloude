@@ -114,32 +114,43 @@
     </div>
 </div>
 
-<!-- Главный экран с фоновыми видео-файлами (Пути исправлены) -->
-<section id="home" class="home-header step scrollify" 
-         data-vide-bg="mp4: ./static/video/main-bg-vid" 
-         data-vide-options="posterType: jpg, loop: true, muted: true" 
-         data-magellan="" 
-         data-offset="-25"
-         muted autoplay playsinline
-         style="background-image: url('./static/img/main-bg.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
-
+<!-- Главный экран с чистым, современным HTML5 видео-фоном (Финальное решение тайминга) -->
+<section id="home" class="home-header step scrollify" data-magellan="" data-offset="-25" style="position: relative; width: 100%; height: 100vh; overflow: hidden; background-color: #0b0c0e;">
     
-    <div class="overlay"></div>
+    <!-- Настоящий, системный видеоплеер -->
+    <video autoplay muted loop playsinline poster="./static/img/main-bg.jpg" style="position: absolute; top: 50%; left: 50%; min-width: 100%; min-height: 100%; width: auto; height: auto; transform: translate(-50%, -50%); object-fit: cover; z-index: 0;">
+        <source src="./static/video/main-bg-vid.mp4" type="video/mp4">
+        Ваш браузер не поддерживает видео.
+    </video>
 
-    <div class="animation-container">
+    <!-- Затемняющий оверлей поверх видео -->
+    <div class="overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(11, 12, 14, 0.65); z-index: 1;"></div>
+
+    <!-- Анимационный контейнер: оригинальная структура из 5 блоков (логотип встал обратно в конец) -->
+    <div class="animation-container" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 2; width: 100%; max-width: 1200px; text-align: center;">
+        <!-- 1. Первое появление логотипа -->
         <div>
             <img class="logo" src="./static/img/ideal-text.svg">
         </div>
+        
+        <!-- 2-4. Чередующиеся премиальные фразы -->
         <div><h1>Отделка резиденций и апартаментов</h1></div>
         <div><h1>Бескомпромиссный перфекционизм</h1></div>
         <div><h1>Реализация проектов под ключ</h1></div>
+        
+        <!-- 5. Финальное появление сияющего логотипа (СТРОГО ПОСЛЕДНИЙ ДЛЯ СКРИПТА) -->
         <div>
             <img class="effect-shine logo" src="./static/img/logo-icon.svg">
         </div>
     </div>
-    <a class="scroll-icon" href="#contact">
-        <img class="arrow-down" style="max-width:80px;" src="./static/img/icons/arrow-down.svg" alt="">
-    </a>
+
+    <!-- Стрелочка вынесена отдельно. Она жестко привязана к низу и имеет задержку появления. -->
+    <!-- opacity: 0 и animation-delay заставляют её ждать, пока отыграет весь сценарий логотипа -->
+    <div style="position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%); z-index: 3; text-align: center; opacity: 0; animation: fadeInArrow 1s forwards; animation-delay: 18s;">
+        <a class="scroll-icon scroll-pages" href="#contact" style="display: inline-block; text-decoration: none;">
+            <img class="arrow-down luxury-float" style="max-width: 60px; width: 60px; height: auto; display: block; margin: 0 auto;" src="./static/img/icons/arrow-down.svg" alt="Дальше">
+        </a>
+    </div>
 </section>
 
 <!-- Секция контактов с фоновым изображением -->
